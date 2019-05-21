@@ -78,6 +78,9 @@ video {
   vertical-align: baseline;
   background: transparent; }
 
+* {
+  box-sizing: border-box; }
+
 *:focus {
   outline: none; }
 
@@ -117,28 +120,9 @@ a {
 a:hover {
   text-decoration: none; }
 
-table {
-  /* border-collapse: collapse; не ставиться border-radius,но склеиваются ячецки */
-  border-spacing: 2px;
-  /* маржин в таблицах */
-  border-collapse: separate;
-  /* расклеивает ячейки */ }
-
 img {
   border-style: none;
   max-width: 100%; }
-
-::selection {
-  color: #fff;
-  /* Цвет текста */
-  background: #3399ff;
-  /* Цвет фона */ }
-
-::-moz-selection {
-  color: #fff;
-  /* Цвет текста */
-  background: #3399ff;
-  /* Цвет фона */ }
 
 form fieldset {
   margin: 0;
@@ -161,6 +145,25 @@ input::-webkit-input-placeholder {
 
 input:focus::-webkit-input-placeholder {
   color: #ebedec; }
+
+::selection {
+  color: #fff;
+  /* Цвет текста */
+  background: #3399ff;
+  /* Цвет фона */ }
+
+::-moz-selection {
+  color: #fff;
+  /* Цвет текста */
+  background: #3399ff;
+  /* Цвет фона */ }
+
+table {
+  /* border-collapse: collapse; не ставиться border-radius,но склеиваются ячецки */
+  border-spacing: 2px;
+  /* маржин в таблицах */
+  border-collapse: separate;
+  /* расклеивает ячейки */ }
 
 .clearfix:after {
   content: '';
@@ -186,7 +189,7 @@ footer {
   margin: 0 0 0;
   padding: 0 0 0; }
 
-main {
+section#main {
   display: block;
   width: 100%;
   position: relative; }
