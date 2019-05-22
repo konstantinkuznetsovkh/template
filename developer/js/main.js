@@ -18,23 +18,41 @@ document.addEventListener('DOMContentLoaded', () => {
 	//start show_menu_to_click_span////////////////////////////////////
 	(() => {
 		let button = document.getElementById('click_show_menu');
-		button.addEventListener('click', () => {
-			button.classList.add('active');
+		button.addEventListener('mouseover', () => {
 			let show = document.getElementsByClassName('menu');
 			for (let i = 0; i < show.length; i++) {
-				show[i].classList.add('active');
+				show[i].classList.toggle('active');
+				show[i].addEventListener('click', () => {
+					button.classList.toggle('active');
+					show[i].classList.toggle('active');
+				})
+				// if (event.target === show[i]) {
+				// 	alert("dcsd");
+				// 	// button.classList.remove('active');
+				// 	// show[i].classList.remove('active');
+				// }
 				break;
 			}
-			setTimeout(() => {
-				document.addEventListener('click', () => {
-					button.classList.remove('active');
-					for (let i = 0; i < show.length; i++) {
-						show[i].classList.remove('active');
-						break;
-					}
-				})
-			}, 111);
+
+			button.classList.toggle('active');
+			// let Abutton = button.getElementsByClassName('active');
+			// for (let i = 0; i < Abutton.length; i++) {
+
+			// 	Abutton[i].addEventListener('click', () => {
+			// 		let show = document.getElementsByClassName('menu');
+			// 		// button.classList.toggle('active');
+			// 		// for (let i = 0; i < Abutton.length; i++) {
+			// 		Abutton[i].classList.remove('active');
+			// 		// 	break;
+			// 		// }
+			// 		for (let i = 0; i < show.length; i++) {
+			// 			show[i].classList.remove('active');
+			// 			break;
+			// 		}
+			// 	});
+			// }
 		});
+
 
 	})();
 	//end show_menu_to_click_span/////////////////////////////////////
@@ -59,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						break;
 					}
 				});
-			}, 888);
+			}, 505);
 		});
 	})();
 	//end pop_up_teleport///////////////////////////////////////////////////////////////////////
@@ -84,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						break;
 					}
 				});
-			}, 888);
+			}, 505);
 		});
 	})();
 	//end pop_up_shift///////////////////////////////////////////////////////////////////////
@@ -106,11 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		function remove_active() {
 			for (let i = 0; i < links.length; i++) {
 				links[i].classList.remove('active');
-				break;
 			}
 			for (let i = 0; i < tabs.length; i++) {
 				tabs[i].classList.remove('active');
-				break;
 			}
 		}
 		//if click start events and search index in array
@@ -124,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				},
 				false
 			);
-			break;
 		}
 	})();
 	//end tabs//////////////////////////////////////////////////////////////////////////////////////
