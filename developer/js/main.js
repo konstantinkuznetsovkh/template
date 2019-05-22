@@ -18,14 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
 	//start show_menu_to_click_span////////////////////////////////////
 	(() => {
 		let button = document.getElementById('click_show_menu');
-		button.addEventListener('mouseover', () => {
+		button.addEventListener('click', () => {
+			// mouseover
 			let show = document.getElementsByClassName('menu');
+			button.classList.toggle('active');
 			for (let i = 0; i < show.length; i++) {
 				show[i].classList.toggle('active');
-				show[i].addEventListener('click', () => {
-					button.classList.toggle('active');
-					show[i].classList.toggle('active');
-				})
+
+				// let menu_drop = show[i].querySelectorAll('.menu_drop li');
+				// menu_drop.addEventListener("click", () => {
+				// 	alert("ded");
+				// })
+
+				// show[i].addEventListener('click', () => {
+				// 	button.classList.toggle('active');
+				// 	show[i].classList.toggle('active');
+				// })
 				// if (event.target === show[i]) {
 				// 	alert("dcsd");
 				// 	// button.classList.remove('active');
@@ -33,8 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
 				// }
 				break;
 			}
-
-			button.classList.toggle('active');
+			// for (let i = 0; i < show.length; i++) {
+			// 	let menu_drop = show[i].getElementsByTagName('li');
+			// 	// return show[i];
+			// 	for (let i = 0; i < menu_drop.length; i++) {
+			// 		menu_drop[i].addEventListener('click', () => {
+			// 			alert("fe");
+			// 		})
+			// 	}
+			// button.classList.toggle('active');
 			// let Abutton = button.getElementsByClassName('active');
 			// for (let i = 0; i < Abutton.length; i++) {
 
