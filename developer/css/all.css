@@ -120,6 +120,17 @@ a {
 a:hover {
   text-decoration: none; }
 
+a:hover,
+a:visited:hover {
+  text-decoration: none; }
+
+a:active,
+a:visited:hover {
+  text-decoration: none; }
+
+a:visited {
+  text-decoration: none; }
+
 img {
   border-style: none;
   max-width: 100%; }
@@ -421,11 +432,11 @@ header nav#header_menu {
       height: 0;
       border-width: 4px 0px 0px 0px;
       transform: rotate(45deg);
-      transition: 3s transform; }
+      transition: 1s transform; }
     header nav#header_menu span#click_show_menu.active::before {
       top: calc(50% - 2px);
       height: 0;
-      transition: 3s transform;
+      transition: 1s transform;
       border-width: 4px 0px 0px 0px;
       transform: rotate(-45deg); }
   header nav#header_menu ul.menu {
