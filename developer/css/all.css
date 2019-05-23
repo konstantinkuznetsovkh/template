@@ -258,6 +258,10 @@ header {
   position: relative;
   width: 700px;
   height: 500px; }
+  @media (max-width: 768px) {
+    #tab ul.tab_content {
+      width: 322px;
+      height: 500px; } }
   #tab ul.tab_content li {
     position: absolute;
     width: 100%;
@@ -479,9 +483,9 @@ header nav#header_menu {
       border-bottom: 1px solid #666;
       transition: 0.5s all;
       width: 141px; }
-    header nav#header_menu ul.menu a:hover {
-      background: #666;
-      padding: 10px 0 10px 20px; }
+      header nav#header_menu ul.menu a:hover {
+        background: #666;
+        padding: 10px 0 10px 20px; }
     header nav#header_menu ul.menu li .menu__drop li:last-child a {
       border-radius: 0px 0px 3px 3px; }
     @media (max-width: 768px) {

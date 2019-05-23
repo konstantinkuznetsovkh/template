@@ -6,6 +6,11 @@
         width: 700px;
         height: 500px;
 
+        @media #{$mobile-big} {
+            width: 322px;
+            height: 500px;
+        }
+
         li {
             position: absolute;
             width: 100%;
