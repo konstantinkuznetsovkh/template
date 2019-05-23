@@ -1,98 +1,79 @@
 //start nav//////////////////////////////////////////////////////////////////////////////////////
 
-
 nav#header_menu {
-    // width: 200px;
     margin: 20px;
 
+    @media #{$mobile-big} {
+        margin: 10px;
+        height: 55px;
+        width: 55px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9994;
+        cursor: pointer;
+    }
 
-    span#click_show_menu {
-        width: 44px;
-        height: 44px;
+    div#click_show_menu {
+        height: 55px;
+        display: none;
         position: relative;
         cursor: pointer;
-        display: none;
-        background: palevioletred;
 
         @media #{$mobile-big} {
             display: block;
-
         }
 
-        &::after {
-            width: 100%;
+        span {
+            top: 50%;
+            left: 0;
+            height: 7px;
+            width: 55px;
             position: absolute;
-            top: calc(50% - 2px);
-            content: "";
-            border-style: solid;
-            border-color: rgb(0, 0, 0);
-            height: 12px;
+            border-radius: 50px;
+            background-color: rgb(61, 61, 61);
             transform: rotate(0deg);
-            border-width: 4px 0px 4px 0px;
-            transition: 1s transform;
-            transition: .5s border-width;
+            transition: all ease 0.5s;
 
-        }
-
-        &::before {
-
-            top: 4px;
-            position: absolute;
-            content: "";
-            border-style: solid;
-            border-width: 4px 0px 4px 0px;
-            width: 100%;
-            height: 12px;
-            border-color: rgb(0, 0, 0);
-            transform: rotate(0deg);
-            transition: 1s transform;
-            transition: .5s border-width;
-        }
-
-        // &:hover {
-
-        //     &::after {
-        //         height: 0;
-        //         border-width: 4px 0px 0px 0px;
-        //         transform: rotate(45deg);
-        //         transition: 3s transform;
-        //     }
-
-        //     &::before {
-        //         top: calc(50% - 2px);
-        //         height: 0;
-        //         transition: 3s transform;
-        //         border-width: 4px 0px 0px 0px;
-        //         transform: rotate(-45deg);
-
-        //     }
-        // }
-
-        &.active {
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                height: inherit;
+                border-radius: inherit;
+                background-color: inherit;
+                margin: auto;
+                width: 50%;
+                transition: all ease 0.5s;
+            }
 
             &::after {
-                height: 0;
-                border-width: 4px 0px 0px 0px;
-                transform: rotate(45deg);
-                transition: 1s transform;
+                bottom: -20px;
+                right: 0;
+                transform-origin: right;
             }
 
             &::before {
-                top: calc(50% - 2px);
-                height: 0;
-                transition: 1s transform;
-                border-width: 4px 0px 0px 0px;
-                transform: rotate(-45deg);
+                top: -20px;
+                left: 0;
+                transform-origin: left;
+            }
 
+            &.active {
+                transform: rotate(135deg);
+                // transform: translate(-50%, -50%) rotate(135deg);
+
+                &::before {
+                    top: 0;
+                    transform: translateX(100%) rotate(-90deg);
+                }
+
+                &::after {
+                    bottom: 0;
+                    transform: translateX(-100%) rotate(-90deg);
+                }
             }
         }
-
-        // &:hover ul.menu li {
-        //     // visibility: visible;
-        //     transition: 3s;
-        //     // display: block;
-        // }
-
     }
 
     ul.menu {
@@ -101,33 +82,29 @@ nav#header_menu {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        // width: 100%;
+        transition: .7s;
 
         @media #{$mobile-big} {
+            opacity: 0;
             visibility: hidden;
             flex-direction: column;
             position: absolute;
             width: 143px;
+            margin-top: -202px;
         }
 
         &.active {
+            margin-top: 0px;
             visibility: visible;
+            height: 100%;
+            opacity: 1;
+            transition: .7s;
         }
-
-
-        // display: none;
-        // position: absolute;
-        // visibility: hidden;
-        // li {
-        //     // display: none;
-        // }
 
         a {
             background: #3d3d3d;
             color: #fff;
             padding: 10px;
-            // visibility: hidden;
-            // display: none;
             display: block;
             border-bottom: 1px solid #666;
             transition: 0.5s all;
@@ -139,13 +116,6 @@ nav#header_menu {
             padding: 10px 0 10px 20px;
         }
 
-        // .menu li:first-child>a {border-radius: 3px 3px 0 0;}
-        // .menu li:last-child>a {border-radius: 0 0 3px 3px; border-bottom: 0;}﻿
-        // .menu__drop li:only-child>a {border-radius: 3px; border-bottom: 0;}
-        // li:first-child a,
-        // li .menu__drop li:first-child a {
-        //     border-radius: 3px 3px 0 0;
-        // }
         li .menu__drop li:last-child a {
             border-radius: 0px 0px 3px 3px;
         }
@@ -171,7 +141,6 @@ nav#header_menu {
         }
 
         .menu__list {
-
             position: relative;
 
             .menu__drop {
@@ -181,14 +150,14 @@ nav#header_menu {
                 left: 0;
                 top: -100vh;
                 opacity: 0;
-                transition: 0.5s opacity;
                 z-index: 9995;
+                transition: 1s cubic-bezier(0, 0, 0, 1);
 
                 @media #{$mobile-big} {
                     border-top: unset;
                     border-left: 10px solid transparent;
-                    left: 100%;
-
+                    left: -100%;
+                    top: 0;
                 }
             }
         }
@@ -199,6 +168,7 @@ nav#header_menu {
             top: 100%;
 
             @media #{$mobile-big} {
+                left: 100%;
                 top: 0;
             }
         }
@@ -216,7 +186,6 @@ nav#header_menu {
 
             @media #{$mobile-big} {
                 border-color: transparent transparent transparent #eee;
-
             }
         }
 
@@ -231,14 +200,6 @@ nav#header_menu {
             }
         }
     }
-
-
-
-
-
-
-
-
 }
 
 

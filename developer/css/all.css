@@ -394,65 +394,80 @@ header {
 
 header nav#header_menu {
   margin: 20px; }
-  header nav#header_menu span#click_show_menu {
-    width: 44px;
-    height: 44px;
-    position: relative;
-    cursor: pointer;
+  @media (max-width: 768px) {
+    header nav#header_menu {
+      margin: 10px;
+      height: 55px;
+      width: 55px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9994;
+      cursor: pointer; } }
+  header nav#header_menu div#click_show_menu {
+    height: 55px;
     display: none;
-    background: palevioletred; }
+    position: relative;
+    cursor: pointer; }
     @media (max-width: 768px) {
-      header nav#header_menu span#click_show_menu {
+      header nav#header_menu div#click_show_menu {
         display: block; } }
-    header nav#header_menu span#click_show_menu::after {
-      width: 100%;
+    header nav#header_menu div#click_show_menu span {
+      top: 50%;
+      left: 0;
+      height: 7px;
+      width: 55px;
       position: absolute;
-      top: calc(50% - 2px);
-      content: "";
-      border-style: solid;
-      border-color: black;
-      height: 12px;
+      border-radius: 50px;
+      background-color: #3d3d3d;
       transform: rotate(0deg);
-      border-width: 4px 0px 4px 0px;
-      transition: 1s transform;
-      transition: .5s border-width; }
-    header nav#header_menu span#click_show_menu::before {
-      top: 4px;
-      position: absolute;
-      content: "";
-      border-style: solid;
-      border-width: 4px 0px 4px 0px;
-      width: 100%;
-      height: 12px;
-      border-color: black;
-      transform: rotate(0deg);
-      transition: 1s transform;
-      transition: .5s border-width; }
-    header nav#header_menu span#click_show_menu.active::after {
-      height: 0;
-      border-width: 4px 0px 0px 0px;
-      transform: rotate(45deg);
-      transition: 1s transform; }
-    header nav#header_menu span#click_show_menu.active::before {
-      top: calc(50% - 2px);
-      height: 0;
-      transition: 1s transform;
-      border-width: 4px 0px 0px 0px;
-      transform: rotate(-45deg); }
+      transition: all ease 0.5s; }
+      header nav#header_menu div#click_show_menu span::before, header nav#header_menu div#click_show_menu span::after {
+        content: "";
+        position: absolute;
+        height: inherit;
+        border-radius: inherit;
+        background-color: inherit;
+        margin: auto;
+        width: 50%;
+        transition: all ease 0.5s; }
+      header nav#header_menu div#click_show_menu span::after {
+        bottom: -20px;
+        right: 0;
+        transform-origin: right; }
+      header nav#header_menu div#click_show_menu span::before {
+        top: -20px;
+        left: 0;
+        transform-origin: left; }
+      header nav#header_menu div#click_show_menu span.active {
+        transform: rotate(135deg); }
+        header nav#header_menu div#click_show_menu span.active::before {
+          top: 0;
+          transform: translateX(100%) rotate(-90deg); }
+        header nav#header_menu div#click_show_menu span.active::after {
+          bottom: 0;
+          transform: translateX(-100%) rotate(-90deg); }
   header nav#header_menu ul.menu {
     visibility: visible;
     z-index: 9995;
     display: flex;
     flex-direction: row;
-    justify-content: space-between; }
+    justify-content: space-between;
+    transition: .7s; }
     @media (max-width: 768px) {
       header nav#header_menu ul.menu {
+        opacity: 0;
         visibility: hidden;
         flex-direction: column;
         position: absolute;
-        width: 143px; } }
+        width: 143px;
+        margin-top: -202px; } }
     header nav#header_menu ul.menu.active {
-      visibility: visible; }
+      margin-top: 0px;
+      visibility: visible;
+      height: 100%;
+      opacity: 1;
+      transition: .7s; }
     header nav#header_menu ul.menu a {
       background: #3d3d3d;
       color: #fff;
@@ -486,18 +501,20 @@ header nav#header_menu {
         left: 0;
         top: -100vh;
         opacity: 0;
-        transition: 0.5s opacity;
-        z-index: 9995; }
+        z-index: 9995;
+        transition: 1s cubic-bezier(0, 0, 0, 1); }
         @media (max-width: 768px) {
           header nav#header_menu ul.menu .menu__list .menu__drop {
             border-top: unset;
             border-left: 10px solid transparent;
-            left: 100%; } }
+            left: -100%;
+            top: 0; } }
     header nav#header_menu ul.menu .menu__list:hover .menu__drop {
       opacity: 1;
       top: 100%; }
       @media (max-width: 768px) {
         header nav#header_menu ul.menu .menu__list:hover .menu__drop {
+          left: 100%;
           top: 0; } }
     header nav#header_menu ul.menu .menu__list::after {
       content: " ";

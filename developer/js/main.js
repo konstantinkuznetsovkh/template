@@ -17,58 +17,26 @@ document.addEventListener('DOMContentLoaded', () => {
 	// d();
 	//start show_menu_to_click_span////////////////////////////////////
 	(() => {
-		let button = document.getElementById('click_show_menu');
-		button.addEventListener('click', () => {
-			// mouseover
+		const nav = document.getElementById('header_menu'),
+			button = document.getElementById('click_show_menu'),
+			burger = button.getElementsByTagName('SPAN'),
+			single = nav.getElementsByClassName('single');
+		button.addEventListener('click', toggle_menu, false);
+		for (let i = 0; i < single.length; i++) {
+			single[i].addEventListener('click', toggle_menu, false);
+		}
+
+		function toggle_menu() {
 			let show = document.getElementsByClassName('menu');
-			button.classList.toggle('active');
-			for (let i = 0; i < show.length; i++) {
-				show[i].classList.toggle('active');
-
-				// let menu_drop = show[i].querySelectorAll('.menu_drop li');
-				// menu_drop.addEventListener("click", () => {
-				// 	alert("ded");
-				// })
-
-				// show[i].addEventListener('click', () => {
-				// 	button.classList.toggle('active');
-				// 	show[i].classList.toggle('active');
-				// })
-				// if (event.target === show[i]) {
-				// 	alert("dcsd");
-				// 	// button.classList.remove('active');
-				// 	// show[i].classList.remove('active');
-				// }
+			for (let i = 0; i < burger.length; i++) {
+				burger[i].classList.toggle('active');
 				break;
 			}
-			// for (let i = 0; i < show.length; i++) {
-			// 	let menu_drop = show[i].getElementsByTagName('li');
-			// 	// return show[i];
-			// 	for (let i = 0; i < menu_drop.length; i++) {
-			// 		menu_drop[i].addEventListener('click', () => {
-			// 			alert("fe");
-			// 		})
-			// 	}
-			// button.classList.toggle('active');
-			// let Abutton = button.getElementsByClassName('active');
-			// for (let i = 0; i < Abutton.length; i++) {
-
-			// 	Abutton[i].addEventListener('click', () => {
-			// 		let show = document.getElementsByClassName('menu');
-			// 		// button.classList.toggle('active');
-			// 		// for (let i = 0; i < Abutton.length; i++) {
-			// 		Abutton[i].classList.remove('active');
-			// 		// 	break;
-			// 		// }
-			// 		for (let i = 0; i < show.length; i++) {
-			// 			show[i].classList.remove('active');
-			// 			break;
-			// 		}
-			// 	});
-			// }
-		});
-
-
+			for (let i = 0; i < show.length; i++) {
+				show[i].classList.toggle('active');
+				break;
+			}
+		};
 	})();
 	//end show_menu_to_click_span/////////////////////////////////////
 	//start pop_up_teleport/////////////////////////////////////////////////////////////////////
