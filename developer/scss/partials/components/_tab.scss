@@ -12,6 +12,12 @@
             height: 100%;
             opacity: 0;
             transition: .003s linear;
+
+            img {
+                width: 700px;
+                height: 464px;
+                background: blueviolet;
+            }
         }
 
         li.active {

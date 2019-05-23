@@ -264,6 +264,10 @@ header {
     height: 100%;
     opacity: 0;
     transition: .003s linear; }
+    #tab ul.tab_content li img {
+      width: 700px;
+      height: 464px;
+      background: blueviolet; }
   #tab ul.tab_content li.active {
     opacity: 1;
     transition: 1s linear; }
