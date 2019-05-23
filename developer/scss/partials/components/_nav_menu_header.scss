@@ -78,11 +78,19 @@ nav#header_menu {
 
     ul.menu {
         visibility: visible;
-        z-index: 9995;
+        // z-index: 9993;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         transition: .7s;
+
+        &>li {
+            z-index: 9994;
+        }
+
+        // &>li>ul+li {
+        //     z-index: 9993;
+        // }
 
         @media #{$mobile-big} {
             opacity: 0;
@@ -150,7 +158,7 @@ nav#header_menu {
                 left: 0;
                 top: -100vh;
                 opacity: 0;
-                z-index: 9995;
+                z-index: -1;
                 transition: 1s cubic-bezier(0, 0, 0, 1);
 
                 @media #{$mobile-big} {
@@ -196,7 +204,6 @@ nav#header_menu {
 
             @media #{$mobile-big} {
                 transform: scaleX(-1);
-
             }
         }
     }
